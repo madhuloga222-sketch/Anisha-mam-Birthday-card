@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Birthday Card for Anisha Fathima</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='90'>🎂</text></svg>"
+    />
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="/_sdk/element_sdk.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -571,6 +576,11 @@
 
       .variant-white {
         background: linear-gradient(135deg, #e8d4c4 0%, #f5e6d3 100%);
+        color: #5d3a1a;
+      }
+
+      .variant-gold {
+        background: linear-gradient(135deg, #ddd89c 0%, #c4b896 100%);
         color: #5d3a1a;
       }
 
@@ -1325,6 +1335,17 @@
             >
               <span>👩‍🏫</span> <span class="font-quicksand">Coach</span>
             </button>
+            <button
+              class="trait-button element-hover"
+              id="gold-btn"
+              style="
+                background: linear-gradient(135deg, #ddd89c, #c4b896);
+                color: #5d3a1a;
+                border-color: #ddd89c;
+              "
+            >
+              <span>✨</span> <span class="font-quicksand">Gold</span>
+            </button>
           </div>
           <!-- Footer -->
           <div class="text-center">
@@ -1439,6 +1460,7 @@
         },
         Roast: { label: "Milk Bar - Roast Variant 🍫", class: "variant-roast" },
         White: { label: "Milk Bar - White Variant 🍫", class: "variant-white" },
+        Gold: { label: "Milk Bar - Gold Variant ✨", class: "variant-gold" },
       };
 
       document.getElementById("singer-btn").addEventListener("click", () => {
@@ -1452,10 +1474,16 @@
 
       document.getElementById("chocolate-btn").addEventListener("click", () => {
         blastIcons("🍫", 15);
+        applyChocolateTheme();
       });
 
       document.getElementById("coach-btn").addEventListener("click", () => {
         blastIcons("👩‍🏫", 15);
+      });
+
+      document.getElementById("gold-btn").addEventListener("click", () => {
+        blastIcons("✨", 15);
+        applyGoldTheme();
       });
 
       document
@@ -1463,6 +1491,54 @@
         .addEventListener("click", function () {
           playBirthdayMelody();
         });
+
+      function applyChocolateTheme() {
+        const container = document.getElementById("card-container");
+        const cardBody = container.querySelector(".card-body");
+
+        container.style.background =
+          "linear-gradient(135deg, #5D3A1A 0%, #8B5A2B 30%, #A0826D 60%, #6B4423 100%)";
+        cardBody.style.background =
+          "linear-gradient(180deg, #8B6F47 0%, #A0826D 50%, #8B7355 100%)";
+        cardBody.style.color = "#FFE4B5";
+
+        document
+          .querySelectorAll(".font-playfair, .font-dancing, h1, h2, p")
+          .forEach((el) => {
+            el.style.color = "#FFE4B5";
+          });
+
+        document.querySelectorAll(".text-hover").forEach((el) => {
+          el.style.color = "#FFE4B5";
+        });
+
+        document.getElementById("message-display").style.color = "#FFE4B5";
+        document.getElementById("date-display").style.color = "#FFE4B5";
+      }
+
+      function applyGoldTheme() {
+        const container = document.getElementById("card-container");
+        const cardBody = container.querySelector(".card-body");
+
+        container.style.background =
+          "linear-gradient(135deg, #DDD89C 0%, #E8E4AD 30%, #D4CA8D 60%, #C4B896 100%)";
+        cardBody.style.background =
+          "linear-gradient(180deg, #E8DFA0 0%, #D4CA8D 50%, #CCC17D 100%)";
+        cardBody.style.color = "#5D3A1A";
+
+        document
+          .querySelectorAll(".font-playfair, .font-dancing, h1, h2, p")
+          .forEach((el) => {
+            el.style.color = "#5D3A1A";
+          });
+
+        document.querySelectorAll(".text-hover").forEach((el) => {
+          el.style.color = "#5D3A1A";
+        });
+
+        document.getElementById("message-display").style.color = "#5D3A1A";
+        document.getElementById("date-display").style.color = "#5D3A1A";
+      }
 
       function createBalloon() {
         const balloonClasses = [
@@ -1526,37 +1602,55 @@
       setInterval(createBubble, 1500);
       setInterval(createCodeTag, 2500);
 
-      // Color rotation every 15 seconds
+      // Color rotation every 15 seconds with vibrant gradients
       const colorSchemes = [
         {
-          html: "linear-gradient(135deg, #E34C26 0%, #FF6B35 100%)",
-          css: "linear-gradient(135deg, #1572B6 0%, #33A9DC 100%)",
-          js: "linear-gradient(135deg, #F7DF1E 0%, #FFE055 100%)",
-          anim: "linear-gradient(135deg, #FF69B4 0%, #FF1493 100%)",
+          html: "linear-gradient(135deg, #FF6B9D 0%, #C44569 100%)",
+          css: "linear-gradient(135deg, #00D2FC 0%, #3A47D5 100%)",
+          js: "linear-gradient(135deg, #FFC837 0%, #FF8C00 100%)",
+          anim: "linear-gradient(135deg, #11998E 0%, #38EF7D 100%)",
         },
         {
-          html: "linear-gradient(135deg, #FF1493 0%, #FF69B4 100%)",
-          css: "linear-gradient(135deg, #00CED1 0%, #20B2AA 100%)",
-          js: "linear-gradient(135deg, #FFD700 0%, #FFA500 100%)",
-          anim: "linear-gradient(135deg, #32CD32 0%, #00FF00 100%)",
+          html: "linear-gradient(135deg, #667EEA 0%, #764BA2 100%)",
+          css: "linear-gradient(135deg, #F093FB 0%, #F5576C 100%)",
+          js: "linear-gradient(135deg, #4FACFE 0%, #00F2FE 100%)",
+          anim: "linear-gradient(135deg, #FA709A 0%, #FEE140 100%)",
         },
         {
-          html: "linear-gradient(135deg, #9B59B6 0%, #AF7AC5 100%)",
-          css: "linear-gradient(135deg, #E74C3C 0%, #C0392B 100%)",
-          js: "linear-gradient(135deg, #3498DB 0%, #2980B9 100%)",
-          anim: "linear-gradient(135deg, #F39C12 0%, #E67E22 100%)",
+          html: "linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 100%)",
+          css: "linear-gradient(135deg, #A8EDEA 0%, #FED6E3 100%)",
+          js: "linear-gradient(135deg, #FF9A56 0%, #FF6A88 100%)",
+          anim: "linear-gradient(135deg, #2E2E78 0%, #13547A 100%)",
         },
         {
-          html: "linear-gradient(135deg, #1ABC9C 0%, #16A085 100%)",
-          css: "linear-gradient(135deg, #8E44AD 0%, #9B59B6 100%)",
-          js: "linear-gradient(135deg, #FF6B6B 0%, #EE5A52 100%)",
-          anim: "linear-gradient(135deg, #FFD700 0%, #FFC700 100%)",
+          html: "linear-gradient(135deg, #FF6E7F 0%, #BFE9FF 100%)",
+          css: "linear-gradient(135deg, #A8EDEA 0%, #FED6E3 100%)",
+          js: "linear-gradient(135deg, #FDBB2D 0%, #22C1C3 100%)",
+          anim: "linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%)",
         },
         {
-          html: "linear-gradient(135deg, #00CED1 0%, #00BFFF 100%)",
-          css: "linear-gradient(135deg, #FF1493 0%, #FF69B4 100%)",
-          js: "linear-gradient(135deg, #32CD32 0%, #00FF7F 100%)",
-          anim: "linear-gradient(135deg, #FF8C00 0%, #FFD700 100%)",
+          html: "linear-gradient(135deg, #FF1654 0%, #FFB368 100%)",
+          css: "linear-gradient(135deg, #00D4FF 0%, #0099FF 100%)",
+          js: "linear-gradient(135deg, #FFAA56 0%, #FF6A88 100%)",
+          anim: "linear-gradient(135deg, #667EEA 0%, #764BA2 100%)",
+        },
+        {
+          html: "linear-gradient(135deg, #13547A 0%, #80D0C7 100%)",
+          css: "linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 100%)",
+          js: "linear-gradient(135deg, #F77737 0%, #FDB462 100%)",
+          anim: "linear-gradient(135deg, #4FACFE 0%, #00F2FE 100%)",
+        },
+        {
+          html: "linear-gradient(135deg, #FF6B35 0%, #F7931E 100%)",
+          css: "linear-gradient(135deg, #11998E 0%, #38EF7D 100%)",
+          js: "linear-gradient(135deg, #FF1654 0%, #FFB368 100%)",
+          anim: "linear-gradient(135deg, #A8EDEA 0%, #FED6E3 100%)",
+        },
+        {
+          html: "linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%)",
+          css: "linear-gradient(135deg, #F093FB 0%, #F5576C 100%)",
+          js: "linear-gradient(135deg, #4FACFE 0%, #00F2FE 100%)",
+          anim: "linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 100%)",
         },
       ];
 
@@ -1782,7 +1876,7 @@
           if (b) {
             var d = b.createElement("script");
             d.innerHTML =
-              "window.__CF$cv$params={r:'9cd1c2065250b2b1',t:'MTc3MDk1ODc4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+              "window.__CF$cv$params={r:'9cd25a486456b2b1',t:'MTc3MDk2NTAxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
             b.getElementsByTagName("head")[0].appendChild(d);
           }
         }
